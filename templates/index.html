@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Popularly</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+
+
+</head>
+<body>
+
+		<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				{% if prediction_text == '1' %}
+    				<img id="imgDisp" src="static/images/good.png" alt="IMG1">    
+    				<h2 id="result">This will be Popular</h2>
+    			{% elif prediction_text == '0' %}	
+    				<img id="imgDisp" src="static/images/bad.png" alt="IMG1">    
+    				<h2 id="result">This needs more improvement</h2>
+      			{% else %}	
+					<img src="static/images/img-01.png" alt="IMG1">
+				{% endif %}
+				
+			</div>
+
+			<form action="{{ url_for('predict')}}" method="post">
+				<span class="contact1-form-title">
+					Article Popularity
+				</span>
+            
+                <div class="wrap-input1 validate-input" data-validate = "Title is required">
+                    <input class="input1" type="text" name="n_tokens_title" placeholder="Title" required="required"></input>
+                    <span class="shadow-input1"></span>
+                </div>
+    	    
+                <div class="wrap-input1 validate-input" data-validate = "Article is required">
+                    <textarea class="input1" type="text" name="n_tokens_content" placeholder="Article Content" required="required"></textarea>
+                    <span class="shadow-input1"></span>
+                </div>
+                
+                <div class="wrap-input1 validate-input" data-validate = "Channel is required">
+                    <input class="input1" type="text" name="channel" placeholder="Channel of Article" required="required"></input>
+                    <span class="shadow-input1"></span>
+                </div>
+                
+        		<div class="wrap-input1 validate-input" data-validate = "Link is required">
+            		<input class="input1" type="text" name="num_hrefs" placeholder="Number of Links" required="required"></input>
+            		<span class="shadow-input1"></span>
+            	</div>
+            	
+        		<div class="wrap-input1 validate-input" data-validate = "Image is required">
+            		<input class="input1" type="text" name="num_imgs" placeholder="Number of Images" required="required"></input>
+            		<span class="shadow-input1"></span>
+            	</div>
+            	
+        		<div class="wrap-input1 validate-input" data-validate = "Video is required">
+            		<input class="input1" type="text" name="num_videos" placeholder="Number of Videos" required="required"></input>
+            		<span class="shadow-input1"></span>
+            	</div>
+            	
+        		<div class="wrap-input1 validate-input" data-validate = "Day is required">
+            		<input class="input1" type="text" name="day" placeholder="Day(Mon-1 & Sun-7)" required="required"></input>
+            		<span class="shadow-input1"></span>
+            	</div>
+
+
+				<div class="container-contact1-form-btn">
+					<button class="contact1-form-btn">
+						<span>
+							Predict
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script>function changeImage(imgName)
+              {
+                 image = document.getElementById('imgDisp');
+                 output = document.getElementById('result');
+
+                 output.innerHTML = "This will be Popular"
+                 image.src = imgName;
+              }
+     </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
