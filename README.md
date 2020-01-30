@@ -7,7 +7,7 @@
 ## Problem statement
 - PREDICTING THE POPULARITY OF ONLINE NEWS
 
--- Based on number of social shares of articles
+Based on number of social shares of articles
 
 
 ## Data/Feature description
