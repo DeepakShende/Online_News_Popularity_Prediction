@@ -6,6 +6,7 @@
 
 ## Problem statement
 - PREDICTING THE POPULARITY OF ONLINE NEWS
+
 -- Based on number of social shares of articles
 
 
@@ -13,6 +14,10 @@
 
 ![Feature description](./resources/features.png)
 
+
+## Sample Test values
+
+![Screenshot](./resources/Iteration%203.png)
 
 
 **Class: Not so Popular**
